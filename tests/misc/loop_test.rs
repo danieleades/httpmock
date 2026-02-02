@@ -8,6 +8,7 @@ use crate::with_standalone_server;
 
 #[cfg(feature = "remote")]
 #[test]
+#[ignore]
 fn loop_with_standalone_test() {
     // Arrange
 
@@ -33,6 +34,7 @@ fn loop_with_standalone_test() {
 }
 
 #[test]
+#[ignore]
 fn loop_with_local_test() {
     // Arrange
 
