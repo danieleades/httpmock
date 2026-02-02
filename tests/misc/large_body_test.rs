@@ -4,7 +4,6 @@ use reqwest::blocking::Client;
 use crate::with_standalone_server;
 
 #[test]
-#[ignore]
 fn large_body_test() {
     // Arrange
 
