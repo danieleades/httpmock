@@ -11,7 +11,9 @@ import Default from '@astrojs/starlight/components/SocialIcons.astro';
             data-icon="octicon-star" 
             data-show-count="true" 
             aria-label="Star httpmock/httpmock on GitHub"
-        ></a>
+        >
+            Star
+        </a>
     </div>
     <Default {...Astro.props} />
 </div>
@@ -29,11 +31,6 @@ import Default from '@astrojs/starlight/components/SocialIcons.astro';
         display: flex;
         align-items: center;
         line-height: 0;
-        min-width: 2rem;
-    }
-    
-    .github-star-button a {
-        text-decoration: none;
     }
     
     /* Ensure the iframe doesn't have any bottom margin from being an inline element */
