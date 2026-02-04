@@ -16,6 +16,9 @@ export default defineConfig({
                 github: 'https://github.com/httpmock/httpmock',
                 discord: 'https://discord.com/invite/7QzTfBUe',
             },
+            components: {
+                SocialIcons: './src/components/SocialIcons.astro',
+            },
             sidebar: [
                 {
                     label: 'Getting Started',
