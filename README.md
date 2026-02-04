@@ -26,8 +26,6 @@
     ·
     <a href="https://discord.gg/BMyywgTJWK">Chat on Discord</a>
     ·
- <a href="https://github.com/httpmock/httpmock/discussions">Forum</a>
-    ·
     <a href="https://github.com/httpmock/httpmock/issues">Report Bug</a>
     ·
     <a href="https://github.com/httpmock/httpmock/issues">Request Feature</a>
