@@ -2,9 +2,8 @@ use std::{
     borrow::Cow,
     cell::Cell,
     env,
-    fs::{File, create_dir_all},
-    future::Future,
-    io::{Read, Write},
+    fs::File,
+    io::Read,
     path::{Path, PathBuf},
     sync::Arc,
     task::{Context, Poll, Wake, Waker},
@@ -12,10 +11,12 @@ use std::{
     time::Duration,
 };
 
+#[cfg(feature = "record")]
+use std::{fs::create_dir_all, io::Write};
+
 use base64::{Engine, engine::general_purpose::STANDARD as BASE64};
 use bytes::Bytes;
 use futures_timer::Delay;
-use futures_util::pin_mut;
 use serde::{Deserialize, Serialize};
 
 // ===============================================================================================
@@ -87,8 +88,7 @@ impl<F: Future> Join for F {
         let waker = Waker::from(Arc::new(ThreadWaker(thread::current())));
         let mut context = Context::from_waker(&waker);
 
-        let future = self;
-        pin_mut!(future);
+        let mut future = std::pin::pin!(self);
 
         loop {
             match future.as_mut().poll(&mut context) {
@@ -111,6 +111,7 @@ pub fn get_test_resource_file_path(relative_resource_path: &str) -> Result<PathB
     }
 }
 
+#[cfg(feature = "record")]
 pub async fn write_file<P: AsRef<Path>>(
     resource_path: P,
     content: &Bytes,

@@ -1,5 +1,4 @@
 use std::{
-    convert::{TryFrom, TryInto},
     fs::{canonicalize, read, read_dir, read_to_string},
     path::{Component, Path, PathBuf},
 };
@@ -10,11 +9,7 @@ use serde_yaml::Deserializer;
 use thiserror::Error;
 
 use crate::{
-    common::{
-        data,
-        data::{MockDefinition, StaticMockDefinition},
-        util::HttpMockBytes,
-    },
+    common::{data, data::MockDefinition, static_mock::StaticMockDefinition, util::HttpMockBytes},
     server::state,
 };
 
